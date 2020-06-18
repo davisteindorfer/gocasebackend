@@ -15,7 +15,7 @@ module Api
       end
       private
       def batch_params
-        params.permit(:reference, :purchase_channel, :group_of_orders)
+        params.permit(:reference, :purchase_channel, :group_of_orders => [])
       end
     end
   end
