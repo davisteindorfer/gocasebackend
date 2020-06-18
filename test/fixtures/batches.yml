@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Reference: MyString
+  Purchase_Channel: MyString
+  Group_of_Orders: MyText
+
+two:
+  Reference: MyString
+  Purchase_Channel: MyString
+  Group_of_Orders: MyText
