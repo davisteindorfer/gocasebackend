@@ -2,7 +2,7 @@ module Api
 	module V1
 		class BatchController < ApplicationController
       def show
-				batch = Batch.find(params[:id])
+				batch = Batch.all.where(order_params)
 				render json: {status: 'SUCCESS', message:'Loaded client order', data:batch},status: :ok
       end
       def create

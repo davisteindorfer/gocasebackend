@@ -2513,3 +2513,111 @@ Processing by Api::V1::OrdersController#show as JSON
 Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 1300)
 
 
+Started POST "/api/v1/orders" for ::1 at 2020-06-19 18:24:30 -0300
+  [1m[35m (21.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"2", "purchase_channel"=>"site eua", "client_name"=>"anna julia", "adress"=>"avenida dom luis", "delivery_service"=>"correios", "total value"=>"R$124", "line items"=>["sku: earphone-standard, color: white"], "status"=>"ready", "order"=>{"reference"=>"2", "purchase_channel"=>"site eua", "client_name"=>"anna julia", "adress"=>"avenida dom luis", "delivery_service"=>"correios", "status"=>"ready"}}
+[31mUnpermitted parameters: :total value, :line items, :order[0m
+Completed 422 Unprocessable Entity in 85ms (Views: 0.3ms | ActiveRecord: 6.5ms | Allocations: 8354)
+
+
+Started POST "/api/v1/orders" for ::1 at 2020-06-19 18:25:15 -0300
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"2", "purchase_channel"=>"site eua", "client_name"=>"anna julia", "adress"=>"avenida dom luis", "delivery_service"=>"correios", "total_value"=>"R$124", "line_items"=>["sku: earphone-standard, color: white"], "status"=>"ready", "order"=>{"reference"=>"2", "purchase_channel"=>"site eua", "client_name"=>"anna julia", "adress"=>"avenida dom luis", "delivery_service"=>"correios", "total_value"=>"R$124", "line_items"=>["sku: earphone-standard, color: white"], "status"=>"ready"}}
+[31mUnpermitted parameter: :order[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (24.1ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "adress", "delivery_service", "total_value", "line_items", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "reference"[0m  [["reference", "2"], ["purchase_channel", "site eua"], ["client_name", "anna julia"], ["adress", "avenida dom luis"], ["delivery_service", "correios"], ["total_value", "R$124"], ["line_items", "[\"sku: earphone-standard, color: white\"]"], ["status", "ready"], ["created_at", "2020-06-19 21:25:15.161454"], ["updated_at", "2020-06-19 21:25:15.161454"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[35m (78.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+Completed 200 OK in 110ms (Views: 0.4ms | ActiveRecord: 102.8ms | Allocations: 3014)
+
+
+Started POST "/api/v1/orders" for ::1 at 2020-06-19 18:25:58 -0300
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"3", "purchase_channel"=>"site us", "client_name"=>"alexandre silva", "adress"=>"avenida santos dumont", "delivery_service"=>"SEDEX", "total_value"=>"R$125", "line_items"=>["sku: earphone-standard, color: black"], "status"=>"production", "order"=>{"reference"=>"3", "purchase_channel"=>"site us", "client_name"=>"alexandre silva", "adress"=>"avenida santos dumont", "delivery_service"=>"SEDEX", "total_value"=>"R$125", "line_items"=>["sku: earphone-standard, color: black"], "status"=>"production"}}
+[31mUnpermitted parameter: :order[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "adress", "delivery_service", "total_value", "line_items", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "reference"[0m  [["reference", "3"], ["purchase_channel", "site us"], ["client_name", "alexandre silva"], ["adress", "avenida santos dumont"], ["delivery_service", "SEDEX"], ["total_value", "R$125"], ["line_items", "[\"sku: earphone-standard, color: black\"]"], ["status", "production"], ["created_at", "2020-06-19 21:25:58.689328"], ["updated_at", "2020-06-19 21:25:58.689328"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 2887)
+
+
+Started POST "/api/v1/orders" for ::1 at 2020-06-19 18:27:00 -0300
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"4", "purchase_channel"=>"site EU", "client_name"=>"joao pedro", "adress"=>"rua barao de aracati", "delivery_service"=>"correios", "total_value"=>"R$126", "line_items"=>["powebank-sunshine, capacity: 10000mah"], "status"=>"production", "order"=>{"reference"=>"4", "purchase_channel"=>"site EU", "client_name"=>"joao pedro", "adress"=>"rua barao de aracati", "delivery_service"=>"correios", "total_value"=>"R$126", "line_items"=>["powebank-sunshine, capacity: 10000mah"], "status"=>"production"}}
+[31mUnpermitted parameter: :order[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "adress", "delivery_service", "total_value", "line_items", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "reference"[0m  [["reference", "4"], ["purchase_channel", "site EU"], ["client_name", "joao pedro"], ["adress", "rua barao de aracati"], ["delivery_service", "correios"], ["total_value", "R$126"], ["line_items", "[\"powebank-sunshine, capacity: 10000mah\"]"], ["status", "production"], ["created_at", "2020-06-19 21:27:00.499407"], ["updated_at", "2020-06-19 21:27:00.499407"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 2887)
+
+
+Started GET "/api/v1/orders" for ::1 at 2020-06-19 18:27:04 -0300
+Processing by Api::V1::OrdersController#index as JSON
+  Parameters: {"order"=>{}}
+  [1m[36mOrder Load (29.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `index'
+Completed 200 OK in 33ms (Views: 2.8ms | ActiveRecord: 29.7ms | Allocations: 1849)
+
+
+Started GET "/api/v1/orders?status=ready" for ::1 at 2020-06-19 18:28:19 -0300
+Processing by Api::V1::OrdersController#index as JSON
+  Parameters: {"status"=>"ready", "order"=>{}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 1761)
+
+
+Started GET "/api/v1/orders/orders?status=ready" for ::1 at 2020-06-19 18:28:32 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"status"=>"ready", "id"=>"orders", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."status" = $1[0m  [["status", "ready"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:10:in `show'
+Completed 200 OK in 77ms (Views: 75.8ms | ActiveRecord: 0.5ms | Allocations: 2866)
+
+
+Started GET "/api/v1/orders/orders?status=production" for ::1 at 2020-06-19 18:28:40 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"status"=>"production", "id"=>"orders", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."status" = $1[0m  [["status", "production"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 1510)
+
+
+Started GET "/api/v1/orders/orders?client_name=rogerio" for ::1 at 2020-06-19 18:28:53 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"client_name"=>"rogerio", "id"=>"orders", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."client_name" = $1[0m  [["client_name", "rogerio"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1095)
+
+
+Started GET "/api/v1/orders/orders?client_name=rogerio%20lima" for ::1 at 2020-06-19 18:28:57 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"client_name"=>"rogerio lima", "id"=>"orders", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."client_name" = $1[0m  [["client_name", "rogerio lima"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms | Allocations: 1300)
+
+
+Started GET "/api/v1/orders" for ::1 at 2020-06-19 20:46:46 -0300
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::OrdersController#index as JSON
+  Parameters: {"order"=>{}}
+  [1m[36mOrder Load (2.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `index'
+Completed 200 OK in 18ms (Views: 11.6ms | ActiveRecord: 7.8ms | Allocations: 7758)
+
+

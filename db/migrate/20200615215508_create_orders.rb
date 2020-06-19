@@ -6,7 +6,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.string :client_name, null: false
       t.string :adress, null: false
       t.string :delivery_service, null: false
-      t.string :total_value, null: false
+      t.integer :total_value_RS, null: false
       t.string :line_items, array: true,default: [] null: false
       t.string :status, null: false
       t.belongs_to :batches

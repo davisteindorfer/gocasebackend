@@ -6,6 +6,6 @@ class CreateBatches < ActiveRecord::Migration[6.0]
       t.text :group_of_orders, array:true, default: [], null:false
       t.timestamps
     end
-    execute "ALTER TABLE batches ADD PRIMARY KEY (purchase_channel);"
+    execute "ALTER TABLE batches ADD PRIMARY KEY (reference);"
   end
 end
