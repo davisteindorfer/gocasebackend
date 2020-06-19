@@ -1,8 +1,12 @@
 module Api
 	module V1
 		class BatchController < ApplicationController
+			def index
+				batch = Batch.order('created_at DESC');
+				render json: {status: 'SUCCESS', message:'Loaded Batches', data:batch},status: :ok
+			end
       def show
-				batch = Batch.all.where(order_params)
+				batch = Batch.all.where(batch_params)
 				render json: {status: 'SUCCESS', message:'Loaded client order', data:batch},status: :ok
       end
       def create
