@@ -2130,3 +2130,386 @@ Processing by Api::V1::BatchController#create as JSON
 Completed 200 OK in 77ms (Views: 0.4ms | ActiveRecord: 67.6ms | Allocations: 5298)
 
 
+Started GET "/api/v1/orders/ready" for ::1 at 2020-06-18 20:43:27 -0300
+  [1m[35m (9.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/mnt/c/sites/restapi/app/controllers/api/v1/orders_controller.rb:27: syntax error, unexpected ')', expecting =>
+...ue, :line_items => [], :status)
+...                              ^
+/mnt/c/sites/restapi/app/controllers/api/v1/orders_controller.rb:34: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/api/v1/orders_controller.rb:27: syntax error, unexpected ')', expecting =>
+app/controllers/api/v1/orders_controller.rb:34: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/api/v1/orders_controller.rb:27: syntax error, unexpected ')', expecting =>
+app/controllers/api/v1/orders_controller.rb:34: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/api/v1/orders/ready" for ::1 at 2020-06-18 20:45:29 -0300
+  
+SyntaxError (/mnt/c/sites/restapi/app/controllers/api/v1/orders_controller.rb:27: syntax error, unexpected ')', expecting =>
+...e, :line_items => [] , :status)
+...                              ^
+/mnt/c/sites/restapi/app/controllers/api/v1/orders_controller.rb:34: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/api/v1/orders_controller.rb:27: syntax error, unexpected ')', expecting =>
+app/controllers/api/v1/orders_controller.rb:34: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/api/v1/orders_controller.rb:27: syntax error, unexpected ')', expecting =>
+app/controllers/api/v1/orders_controller.rb:34: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/api/v1/orders/ready" for ::1 at 2020-06-18 20:49:05 -0300
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/mnt/c/sites/restapi/app/controllers/api/v1/orders_controller.rb:27: syntax error, unexpected ')', expecting =>
+...ue, :line_items => [], :status)
+...                              ^
+/mnt/c/sites/restapi/app/controllers/api/v1/orders_controller.rb:35: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/api/v1/orders_controller.rb:27: syntax error, unexpected ')', expecting =>
+app/controllers/api/v1/orders_controller.rb:35: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/api/v1/orders_controller.rb:27: syntax error, unexpected ')', expecting =>
+app/controllers/api/v1/orders_controller.rb:35: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/api/v1/orders/ready" for ::1 at 2020-06-18 20:56:58 -0300
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/mnt/c/sites/restapi/app/controllers/api/v1/orders_controller.rb:27: syntax error, unexpected ')', expecting =>
+...ue, :line_items => [], :status)
+...                              ^
+/mnt/c/sites/restapi/app/controllers/api/v1/orders_controller.rb:34: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/api/v1/orders_controller.rb:27: syntax error, unexpected ')', expecting =>
+app/controllers/api/v1/orders_controller.rb:34: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/api/v1/orders_controller.rb:27: syntax error, unexpected ')', expecting =>
+app/controllers/api/v1/orders_controller.rb:34: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/api/v1/orders/ready" for ::1 at 2020-06-18 21:02:34 -0300
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"id"=>"ready", "order"=>{}}
+  [1m[36mOrder Load (22.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."reference" = $1 LIMIT $2[0m  [["reference", "ready"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/orders_controller.rb:9:in `show'
+Completed 404 Not Found in 98ms (ActiveRecord: 61.2ms | Allocations: 1231)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Order with 'reference'=ready):
+  
+app/controllers/api/v1/orders_controller.rb:9:in `show'
+Started GET "/api/v1/orders" for ::1 at 2020-06-18 21:02:48 -0300
+Processing by Api::V1::OrdersController#index as JSON
+  Parameters: {"order"=>{}}
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `index'
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.7ms | Allocations: 6971)
+
+
+Started GET "/api/v1/orders" for ::1 at 2020-06-18 21:04:53 -0300
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for Api::V1::OrdersController):
+  
+actionpack (6.0.3.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.3.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/orders/1" for ::1 at 2020-06-18 21:04:56 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"id"=>"1", "order"=>{}}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."reference" = $1 LIMIT $2[0m  [["reference", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `show'
+Completed 200 OK in 17ms (Views: 0.5ms | ActiveRecord: 5.2ms | Allocations: 6401)
+
+
+Started GET "/api/v1/orders/ready" for ::1 at 2020-06-18 21:05:02 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"id"=>"ready", "order"=>{}}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."reference" = $1 LIMIT $2[0m  [["reference", "ready"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `show'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms | Allocations: 652)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Order with 'reference'=ready):
+  
+app/controllers/api/v1/orders_controller.rb:6:in `show'
+Started GET "/api/v1/orders?status=ready" for ::1 at 2020-06-18 21:10:40 -0300
+Processing by Api::V1::OrdersController#index as JSON
+  Parameters: {"status"=>"ready", "order"=>{}}
+  [1m[36mOrder Load (2.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `index'
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 2.4ms | Allocations: 6573)
+
+
+Started GET "/api/v1/orders?status=production" for ::1 at 2020-06-18 21:11:02 -0300
+Processing by Api::V1::OrdersController#index as JSON
+  Parameters: {"status"=>"production", "order"=>{}}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 1133)
+
+
+Started GET "/api/v1/orders?status=production" for ::1 at 2020-06-18 21:11:51 -0300
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for Api::V1::OrdersController):
+  
+actionpack (6.0.3.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.3.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/orders/orders?status=production" for ::1 at 2020-06-18 21:14:12 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"status"=>"production", "id"=>"orders", "order"=>{}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."reference" = $1 LIMIT $2[0m  [["reference", "orders"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/orders_controller.rb:9:in `show'
+Completed 404 Not Found in 6ms (ActiveRecord: 14.5ms | Allocations: 842)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Order with 'reference'=orders):
+  
+app/controllers/api/v1/orders_controller.rb:9:in `show'
+Started GET "/api/v1/orders/orders?status=production" for ::1 at 2020-06-18 21:21:20 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"status"=>"production", "id"=>"orders", "order"=>{}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1329)
+
+
+  
+NoMethodError (undefined method `permit' for "production":String):
+  
+app/controllers/api/v1/orders_controller.rb:30:in `order_params2'
+app/controllers/api/v1/orders_controller.rb:21:in `show'
+Started GET "/api/v1/orders/ready" for ::1 at 2020-06-18 21:21:46 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"id"=>"ready", "order"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 124)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: status):
+  
+app/controllers/api/v1/orders_controller.rb:30:in `order_params2'
+app/controllers/api/v1/orders_controller.rb:21:in `show'
+Started GET "/api/v1/orders?status=ready" for ::1 at 2020-06-18 21:22:57 -0300
+Processing by Api::V1::OrdersController#index as JSON
+  Parameters: {"status"=>"ready", "order"=>{}}
+  [1m[36mOrder Load (2.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `index'
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 2.5ms | Allocations: 6547)
+
+
+Started GET "/api/v1/orders?status=ready" for ::1 at 2020-06-18 21:23:13 -0300
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for Api::V1::OrdersController):
+  
+actionpack (6.0.3.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.3.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.1) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/orders/orders?status=ready" for ::1 at 2020-06-18 21:23:31 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"status"=>"ready", "id"=>"orders", "order"=>{}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 11.6ms | Allocations: 1322)
+
+
+  
+NoMethodError (undefined method `permit' for "ready":String):
+  
+app/controllers/api/v1/orders_controller.rb:27:in `order_params2'
+app/controllers/api/v1/orders_controller.rb:18:in `show'
+Started GET "/api/v1/orders/orders?status=ready" for ::1 at 2020-06-18 21:24:11 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"status"=>"ready", "id"=>"orders", "order"=>{}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 2.5ms | Allocations: 1321)
+
+
+  
+NoMethodError (undefined method `permit' for "ready":String):
+  
+app/controllers/api/v1/orders_controller.rb:27:in `order_params2'
+app/controllers/api/v1/orders_controller.rb:18:in `show'
+Started GET "/api/v1/orders/orders?status=ready" for ::1 at 2020-06-18 21:24:47 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"status"=>"ready", "id"=>"orders", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 6.0ms | Allocations: 525)
+
+
+  
+TypeError (can't cast ActionController::Parameters):
+  
+app/controllers/api/v1/orders_controller.rb:9:in `show'
+Started GET "/api/v1/orders/orders?status=ready" for ::1 at 2020-06-18 21:26:27 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"status"=>"ready", "id"=>"orders", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."status" = $1[0m  [["status", "ready"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:10:in `show'
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 3.6ms | Allocations: 6748)
+
+
+Started GET "/api/v1/orders/orders?status=production" for ::1 at 2020-06-18 21:26:38 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"status"=>"production", "id"=>"orders", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."status" = $1[0m  [["status", "production"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms | Allocations: 1106)
+
+
+Started GET "/api/v1/orders/orders?status=ready" for ::1 at 2020-06-18 21:26:51 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"status"=>"ready", "id"=>"orders", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."status" = $1[0m  [["status", "ready"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 1300)
+
+
+Started GET "/api/v1/orders/orders?reference=1" for ::1 at 2020-06-18 21:26:59 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"reference"=>"1", "id"=>"orders", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."reference" = $1[0m  [["reference", "1"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 1304)
+
+
+Started GET "/api/v1/orders/orders?client_name=rogerio" for ::1 at 2020-06-18 21:27:11 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"client_name"=>"rogerio", "id"=>"orders", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."client_name" = $1[0m  [["client_name", "rogerio"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1094)
+
+
+Started GET "/api/v1/orders/orders?client_name=rogerio%20lima" for ::1 at 2020-06-18 21:27:15 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"client_name"=>"rogerio lima", "id"=>"orders", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."client_name" = $1[0m  [["client_name", "rogerio lima"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1300)
+
+
+Started GET "/api/v1/orders/orders?client_name=paulo" for ::1 at 2020-06-18 21:27:20 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"client_name"=>"paulo", "id"=>"orders", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."client_name" = $1[0m  [["client_name", "paulo"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 1090)
+
+
+Started GET "/api/v1/orders/orders?client_name=rogerio%20lima" for ::1 at 2020-06-18 21:27:26 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"client_name"=>"rogerio lima", "id"=>"orders", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."client_name" = $1[0m  [["client_name", "rogerio lima"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 1300)
+
+
