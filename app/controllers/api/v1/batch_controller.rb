@@ -7,7 +7,7 @@ module Api
 			end
       def show
 				batch = Batch.all.where(batch_params)
-				render json: {status: 'SUCCESS', message:'Loaded client order', data:batch},status: :ok
+				render json: {status: 'SUCCESS', message:'Loaded batch', data:batch},status: :ok
       end
       def create
         batch = Batch.new(batch_params)

@@ -2774,3 +2774,247 @@ Migrating to CreateBatches (20200615220732)
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1478133473495704620)[0m
   [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/orders" for ::1 at 2020-06-19 21:18:45 -0300
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::OrdersController#index as JSON
+  Parameters: {"order"=>{}}
+  [1m[36mOrder Load (2.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 4.9ms | Allocations: 1124)
+
+
+Started POST "/api/v1/orders" for ::1 at 2020-06-19 21:45:09 -0300
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"4", "purchase_channel"=>"site EU", "client_name"=>"joao pedro", "adress"=>"rua barao de aracati", "delivery_service"=>"correios", "total_value"=>"R$126", "line_items"=>["powebank-sunshine, capacity: 10000mah"], "status"=>"production", "order"=>{"reference"=>"4", "purchase_channel"=>"site EU", "client_name"=>"joao pedro", "adress"=>"rua barao de aracati", "delivery_service"=>"correios", "line_items"=>["powebank-sunshine, capacity: 10000mah"], "status"=>"production"}}
+[31mUnpermitted parameter: :order[0m
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 4.9ms | Allocations: 6242)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'total_value' for Order.):
+  
+app/controllers/api/v1/orders_controller.rb:13:in `create'
+Started POST "/api/v1/orders" for ::1 at 2020-06-19 21:45:23 -0300
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"4", "purchase_channel"=>"site EU", "client_name"=>"joao pedro", "adress"=>"rua barao de aracati", "delivery_service"=>"correios", "total_value_RS"=>126, "line_items"=>["powebank-sunshine, capacity: 10000mah"], "status"=>"production", "order"=>{"reference"=>"4", "purchase_channel"=>"site EU", "client_name"=>"joao pedro", "adress"=>"rua barao de aracati", "delivery_service"=>"correios", "total_value_RS"=>126, "line_items"=>["powebank-sunshine, capacity: 10000mah"], "status"=>"production"}}
+[31mUnpermitted parameters: :total_value_RS, :order[0m
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.0ms | Allocations: 4001)
+
+
+  
+NoMethodError (undefined method `total_value' for #<Order:0x00007fffd5aa0050>
+Did you mean?  total_value_RS):
+  
+app/controllers/api/v1/orders_controller.rb:14:in `create'
+Started POST "/api/v1/orders" for ::1 at 2020-06-19 21:45:54 -0300
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"4", "purchase_channel"=>"site EU", "client_name"=>"joao pedro", "adress"=>"rua barao de aracati", "delivery_service"=>"correios", "total_value_RS"=>126, "line_items"=>["powebank-sunshine, capacity: 10000mah"], "status"=>"production", "order"=>{"reference"=>"4", "purchase_channel"=>"site EU", "client_name"=>"joao pedro", "adress"=>"rua barao de aracati", "delivery_service"=>"correios", "total_value_RS"=>126, "line_items"=>["powebank-sunshine, capacity: 10000mah"], "status"=>"production"}}
+[31mUnpermitted parameter: :order[0m
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 10.8ms | Allocations: 9303)
+
+
+  
+NoMethodError (undefined method `total_value' for #<Order:0x00007f7108912a78>
+Did you mean?  total_value_RS):
+  
+app/controllers/api/v1/orders_controller.rb:14:in `create'
+Started POST "/api/v1/orders" for ::1 at 2020-06-19 21:46:17 -0300
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"4", "purchase_channel"=>"site EU", "client_name"=>"joao pedro", "adress"=>"rua barao de aracati", "delivery_service"=>"correios", "total_value_RS"=>126, "line_items"=>["powebank-sunshine, capacity: 10000mah"], "status"=>"production", "order"=>{"reference"=>"4", "purchase_channel"=>"site EU", "client_name"=>"joao pedro", "adress"=>"rua barao de aracati", "delivery_service"=>"correios", "total_value_RS"=>126, "line_items"=>["powebank-sunshine, capacity: 10000mah"], "status"=>"production"}}
+[31mUnpermitted parameter: :order[0m
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 5.4ms | Allocations: 9891)
+
+
+  
+NoMethodError (undefined method `total_value' for #<Order:0x00007f8e58b9d410>
+Did you mean?  total_value_RS):
+  
+app/controllers/api/v1/orders_controller.rb:14:in `create'
+Started POST "/api/v1/orders" for ::1 at 2020-06-19 21:47:44 -0300
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"4", "purchase_channel"=>"site EU", "client_name"=>"joao pedro", "adress"=>"rua barao de aracati", "delivery_service"=>"correios", "total_value_RS"=>126, "line_items"=>["powebank-sunshine, capacity: 10000mah"], "status"=>"production", "order"=>{"reference"=>"4", "purchase_channel"=>"site EU", "client_name"=>"joao pedro", "adress"=>"rua barao de aracati", "delivery_service"=>"correios", "total_value_RS"=>126, "line_items"=>["powebank-sunshine, capacity: 10000mah"], "status"=>"production"}}
+[31mUnpermitted parameter: :order[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (39.7ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "adress", "delivery_service", "total_value_RS", "line_items", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "reference"[0m  [["reference", "4"], ["purchase_channel", "site EU"], ["client_name", "joao pedro"], ["adress", "rua barao de aracati"], ["delivery_service", "correios"], ["total_value_RS", 126], ["line_items", "{\"powebank-sunshine, capacity: 10000mah\"}"], ["status", "production"], ["created_at", "2020-06-20 00:47:44.770877"], ["updated_at", "2020-06-20 00:47:44.770877"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+Completed 200 OK in 105ms (Views: 0.5ms | ActiveRecord: 47.1ms | Allocations: 9105)
+
+
+Started POST "/api/v1/orders" for ::1 at 2020-06-19 21:48:05 -0300
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"3", "purchase_channel"=>"site us", "client_name"=>"alexandre silva", "adress"=>"avenida santos dumont", "delivery_service"=>"SEDEX", "total_value"=>"R$125", "line_items"=>"[\"sku: earphone-standard, color: black\"]", "status"=>"production", "order"=>{"reference"=>"3", "purchase_channel"=>"site us", "client_name"=>"alexandre silva", "adress"=>"avenida santos dumont", "delivery_service"=>"SEDEX", "line_items"=>"[\"sku: earphone-standard, color: black\"]", "status"=>"production"}}
+[31mUnpermitted parameters: :total_value, :line_items, :order[0m
+Completed 422 Unprocessable Entity in 20ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2278)
+
+
+Started POST "/api/v1/orders" for ::1 at 2020-06-19 21:49:18 -0300
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"3", "purchase_channel"=>"site us", "client_name"=>"alexandre silva", "adress"=>"avenida santos dumont", "delivery_service"=>"SEDEX", "total_value_RS"=>"R$125", "line_items"=>["sku: earphone-standard, color: black"], "status"=>"production", "order"=>{"reference"=>"3", "purchase_channel"=>"site us", "client_name"=>"alexandre silva", "adress"=>"avenida santos dumont", "delivery_service"=>"SEDEX", "total_value_RS"=>"R$125", "line_items"=>["sku: earphone-standard, color: black"], "status"=>"production"}}
+[31mUnpermitted parameter: :order[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "adress", "delivery_service", "total_value_RS", "line_items", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "reference"[0m  [["reference", "3"], ["purchase_channel", "site us"], ["client_name", "alexandre silva"], ["adress", "avenida santos dumont"], ["delivery_service", "SEDEX"], ["total_value_RS", 0], ["line_items", "{\"sku: earphone-standard, color: black\"}"], ["status", "production"], ["created_at", "2020-06-20 00:49:18.817872"], ["updated_at", "2020-06-20 00:49:18.817872"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 2857)
+
+
+Started POST "/api/v1/orders" for ::1 at 2020-06-19 21:50:46 -0300
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"2", "purchase_channel"=>"site eua", "client_name"=>"anna julia", "adress"=>"avenida dom luis", "delivery_service"=>"correios", "total_value_RS"=>124, "line_items"=>["sku: earphone-standard, color: white"], "status"=>"ready", "order"=>{"reference"=>"2", "purchase_channel"=>"site eua", "client_name"=>"anna julia", "adress"=>"avenida dom luis", "delivery_service"=>"correios", "total_value_RS"=>124, "line_items"=>["sku: earphone-standard, color: white"], "status"=>"ready"}}
+[31mUnpermitted parameter: :order[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "adress", "delivery_service", "total_value_RS", "line_items", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "reference"[0m  [["reference", "2"], ["purchase_channel", "site eua"], ["client_name", "anna julia"], ["adress", "avenida dom luis"], ["delivery_service", "correios"], ["total_value_RS", 124], ["line_items", "{\"sku: earphone-standard, color: white\"}"], ["status", "ready"], ["created_at", "2020-06-20 00:50:46.668831"], ["updated_at", "2020-06-20 00:50:46.668831"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 2857)
+
+
+Started POST "/api/v1/orders" for ::1 at 2020-06-19 21:51:36 -0300
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"1", "purchase_channel"=>"site eua", "client_name"=>"rogerio lima", "adress"=>"Padre Valdevino, 2475 - Aldeota, Fortaleza - CE, 60135-041", "delivery_service"=>"SEDEX", "total_value_RS"=>123, "line_items"=>["sku: case-my-best-friend, model: iPhone X, case type: Rose Leather"], "status"=>"ready", "order"=>{"reference"=>"1", "purchase_channel"=>"site eua", "client_name"=>"rogerio lima", "adress"=>"Padre Valdevino, 2475 - Aldeota, Fortaleza - CE, 60135-041", "delivery_service"=>"SEDEX", "total_value_RS"=>123, "line_items"=>["sku: case-my-best-friend, model: iPhone X, case type: Rose Leather"], "status"=>"ready"}}
+[31mUnpermitted parameter: :order[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "adress", "delivery_service", "total_value_RS", "line_items", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "reference"[0m  [["reference", "1"], ["purchase_channel", "site eua"], ["client_name", "rogerio lima"], ["adress", "Padre Valdevino, 2475 - Aldeota, Fortaleza - CE, 60135-041"], ["delivery_service", "SEDEX"], ["total_value_RS", 123], ["line_items", "{\"sku: case-my-best-friend, model: iPhone X, case type: Rose Leather\"}"], ["status", "ready"], ["created_at", "2020-06-20 00:51:36.970744"], ["updated_at", "2020-06-20 00:51:36.970744"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 2894)
+
+
+Started POST "/api/v1/batch" for ::1 at 2020-06-19 21:52:48 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"1", "purchase_channel"=>"site eua", "group_of_orders"=>["1", "2"], "batch"=>{"reference"=>"1", "purchase_channel"=>"site eua", "group_of_orders"=>["1", "2"]}}
+[31mUnpermitted parameter: :batch[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:14:in `create'
+  [1m[36mBatch Create (1.9ms)[0m  [1m[32mINSERT INTO "batches" ("reference", "purchase_channel", "group_of_orders", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "reference"[0m  [["reference", "1"], ["purchase_channel", "site eua"], ["group_of_orders", "{1,2}"], ["created_at", "2020-06-20 00:52:48.427724"], ["updated_at", "2020-06-20 00:52:48.427724"]]
+  ↳ app/controllers/api/v1/batch_controller.rb:14:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:14:in `create'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 6.0ms | Allocations: 5208)
+
+
+Started POST "/api/v1/batch" for ::1 at 2020-06-19 21:53:40 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"2", "purchase_channel"=>"site us", "group_of_orders"=>["3"], "batch"=>{"reference"=>"2", "purchase_channel"=>"site us", "group_of_orders"=>["3"]}}
+[31mUnpermitted parameter: :batch[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:14:in `create'
+  [1m[36mBatch Create (0.5ms)[0m  [1m[32mINSERT INTO "batches" ("reference", "purchase_channel", "group_of_orders", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "reference"[0m  [["reference", "2"], ["purchase_channel", "site us"], ["group_of_orders", "{3}"], ["created_at", "2020-06-20 00:53:40.365288"], ["updated_at", "2020-06-20 00:53:40.365288"]]
+  ↳ app/controllers/api/v1/batch_controller.rb:14:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:14:in `create'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 1.2ms | Allocations: 2643)
+
+
+Started POST "/api/v1/batch" for ::1 at 2020-06-19 21:53:52 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"3", "purchase_channel"=>"site EU", "group_of_orders"=>["4"], "batch"=>{"reference"=>"3", "purchase_channel"=>"site EU", "group_of_orders"=>["4"]}}
+[31mUnpermitted parameter: :batch[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:14:in `create'
+  [1m[36mBatch Create (0.4ms)[0m  [1m[32mINSERT INTO "batches" ("reference", "purchase_channel", "group_of_orders", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "reference"[0m  [["reference", "3"], ["purchase_channel", "site EU"], ["group_of_orders", "{4}"], ["created_at", "2020-06-20 00:53:52.571001"], ["updated_at", "2020-06-20 00:53:52.571001"]]
+  ↳ app/controllers/api/v1/batch_controller.rb:14:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:14:in `create'
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 2634)
+
+
+Started POST "/api/v1/batch/1" for ::1 at 2020-06-19 21:53:57 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/batch/1"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/batch/1" for ::1 at 2020-06-19 21:54:06 -0300
+Processing by Api::V1::BatchController#show as JSON
+  Parameters: {"id"=>"1", "batch"=>{}}
+[31mUnpermitted parameters: :id, :batch[0m
+  [1m[36mBatch Load (0.4ms)[0m  [1m[34mSELECT "batches".* FROM "batches"[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 1491)
+
+
+Started GET "/api/v1/batch/2" for ::1 at 2020-06-19 21:54:44 -0300
+Processing by Api::V1::BatchController#show as JSON
+  Parameters: {"id"=>"2", "batch"=>{}}
+[31mUnpermitted parameters: :id, :batch[0m
+  [1m[36mBatch Load (0.2ms)[0m  [1m[34mSELECT "batches".* FROM "batches"[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:10:in `show'
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 3.4ms | Allocations: 3931)
+
+
+Started GET "/api/v1/batch/?batch?reference=1" for ::1 at 2020-06-19 21:55:05 -0300
+Processing by Api::V1::BatchController#index as JSON
+  Parameters: {"batch?reference"=>"1", "batch"=>{}}
+  [1m[36mBatch Load (0.7ms)[0m  [1m[34mSELECT "batches".* FROM "batches" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.7ms | Allocations: 1344)
+
+
+Started GET "/api/v1/batch/batch?reference=1" for ::1 at 2020-06-19 21:55:30 -0300
+Processing by Api::V1::BatchController#show as JSON
+  Parameters: {"reference"=>"1", "id"=>"batch", "batch"=>{}}
+[31mUnpermitted parameters: :id, :batch[0m
+  [1m[36mBatch Load (0.2ms)[0m  [1m[34mSELECT "batches".* FROM "batches" WHERE "batches"."reference" = $1[0m  [["reference", "1"]]
+  ↳ app/controllers/api/v1/batch_controller.rb:10:in `show'
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.5ms | Allocations: 2478)
+
+
+Started GET "/api/v1/batch/batch?purchase_channel=site%20eua" for ::1 at 2020-06-19 21:55:52 -0300
+Processing by Api::V1::BatchController#show as JSON
+  Parameters: {"purchase_channel"=>"site eua", "id"=>"batch", "batch"=>{}}
+[31mUnpermitted parameters: :id, :batch[0m
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT "batches".* FROM "batches" WHERE "batches"."purchase_channel" = $1[0m  [["purchase_channel", "site eua"]]
+  ↳ app/controllers/api/v1/batch_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 1208)
+
+
+Started GET "/api/v1/batch/batch?purchase_channel=site%20us" for ::1 at 2020-06-19 21:55:56 -0300
+Processing by Api::V1::BatchController#show as JSON
+  Parameters: {"purchase_channel"=>"site us", "id"=>"batch", "batch"=>{}}
+[31mUnpermitted parameters: :id, :batch[0m
+  [1m[36mBatch Load (0.3ms)[0m  [1m[34mSELECT "batches".* FROM "batches" WHERE "batches"."purchase_channel" = $1[0m  [["purchase_channel", "site us"]]
+  ↳ app/controllers/api/v1/batch_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 1197)
+
+
+Started GET "/api/v1/batch/batch?purchase_channel=site%20EU" for ::1 at 2020-06-19 21:56:01 -0300
+Processing by Api::V1::BatchController#show as JSON
+  Parameters: {"purchase_channel"=>"site EU", "id"=>"batch", "batch"=>{}}
+[31mUnpermitted parameters: :id, :batch[0m
+  [1m[36mBatch Load (0.4ms)[0m  [1m[34mSELECT "batches".* FROM "batches" WHERE "batches"."purchase_channel" = $1[0m  [["purchase_channel", "site EU"]]
+  ↳ app/controllers/api/v1/batch_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 1197)
+
+

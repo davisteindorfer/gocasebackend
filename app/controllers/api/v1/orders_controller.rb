@@ -21,7 +21,7 @@ module Api
 			# Parametros aceitos
 			private
 			def order_params
-				params.permit(:reference, :purchase_channel, :client_name, :adress, :delivery_service, :total_value, :status, :line_items => [])
+				params.permit(:reference, :purchase_channel, :client_name, :adress, :delivery_service, :total_value_RS, :status, :line_items => [])
 			end
 		end
 	end
