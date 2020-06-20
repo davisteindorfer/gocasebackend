@@ -2747,3 +2747,30 @@ Processing by Api::V1::BatchController#index as JSON
 Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 4.8ms | Allocations: 3589)
 
 
+  [1m[35m (343.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (144.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1478133473495704620)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrders (20200615215508)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(1478133473495704620)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1478133473495704620)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrders (20200615215508)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (199.4ms)[0m  [1m[35mCREATE TABLE "orders" ("reference" character varying NOT NULL, "purchase_channel" character varying NOT NULL, "client_name" character varying NOT NULL, "adress" character varying NOT NULL, "delivery_service" character varying NOT NULL, "total_value_RS" integer NOT NULL, "line_items" character varying[] DEFAULT '{}' NOT NULL, "status" character varying NOT NULL, "batches_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (84.6ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_batches_id" ON "orders"  ("batches_id")[0m
+  [1m[35m (132.2ms)[0m  [1m[35mALTER TABLE orders ADD PRIMARY KEY (reference);[0m
+  [1m[36mprimary::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200615215508"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBatches (20200615220732)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (109.1ms)[0m  [1m[35mCREATE TABLE "batches" ("reference" character varying NOT NULL, "purchase_channel" character varying NOT NULL, "group_of_orders" text[] DEFAULT '{}' NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (95.1ms)[0m  [1m[35mALTER TABLE batches ADD PRIMARY KEY (reference);[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200615220732"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-20 00:00:50.791464"], ["updated_at", "2020-06-20 00:00:50.791464"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1478133473495704620)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

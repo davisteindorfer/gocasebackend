@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 2020_06_15_220732) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "batches", primary_key: "purchase_channel", id: :string, force: :cascade do |t|
-    t.string "reference", null: false
+  create_table "batches", primary_key: "reference", id: :string, force: :cascade do |t|
+    t.string "purchase_channel", null: false
     t.text "group_of_orders", default: [], null: false, array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2020_06_15_220732) do
     t.string "client_name", null: false
     t.string "adress", null: false
     t.string "delivery_service", null: false
-    t.string "total_value", null: false
-    t.string "line_items", null: false
+    t.integer "total_value_RS", null: false
+    t.string "line_items", default: [], null: false, array: true
     t.string "status", null: false
     t.bigint "batches_id"
     t.datetime "created_at", precision: 6, null: false
