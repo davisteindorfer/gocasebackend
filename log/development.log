@@ -3018,3 +3018,321 @@ Processing by Api::V1::BatchController#show as JSON
 Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 1197)
 
 
+Started GET "/api/v1/batch" for ::1 at 2020-06-20 18:55:44 -0300
+  [1m[35m (36.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::BatchController#index as JSON
+  Parameters: {"batch"=>{}}
+  [1m[36mBatch Load (94.3ms)[0m  [1m[34mSELECT "batches".* FROM "batches" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:6:in `index'
+Completed 200 OK in 119ms (Views: 22.1ms | ActiveRecord: 122.4ms | Allocations: 4260)
+
+
+Started GET "/api/v1/orders" for ::1 at 2020-06-20 18:56:31 -0300
+Processing by Api::V1::OrdersController#index as JSON
+  Parameters: {"order"=>{}}
+  [1m[36mOrder Load (58.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `index'
+Completed 200 OK in 74ms (Views: 13.4ms | ActiveRecord: 61.3ms | Allocations: 7460)
+
+
+Started POST "/api/v1/orders" for ::1 at 2020-06-20 18:58:07 -0300
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"5", "purchase_channel"=>"site br", "client_name"=>"joao silva", "adress"=>"av santos dumont", "delivery_service"=>"SEDEX", "total_value_RS"=>127, "line_items"=>["sku: case-my-best-friend, model: iPhone X, case type: Rose Leather"], "status"=>"ready", "order"=>{"reference"=>"5", "purchase_channel"=>"site br", "client_name"=>"joao silva", "adress"=>"av santos dumont", "delivery_service"=>"SEDEX", "total_value_RS"=>127, "line_items"=>["sku: case-my-best-friend, model: iPhone X, case type: Rose Leather"], "status"=>"ready"}}
+[31mUnpermitted parameter: :order[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (56.0ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "adress", "delivery_service", "total_value_RS", "line_items", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "reference"[0m  [["reference", "5"], ["purchase_channel", "site br"], ["client_name", "joao silva"], ["adress", "av santos dumont"], ["delivery_service", "SEDEX"], ["total_value_RS", 127], ["line_items", "{\"sku: case-my-best-friend, model: iPhone X, case type: Rose Leather\"}"], ["status", "ready"], ["created_at", "2020-06-20 21:58:07.680107"], ["updated_at", "2020-06-20 21:58:07.680107"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+Completed 200 OK in 101ms (Views: 0.4ms | ActiveRecord: 57.5ms | Allocations: 3162)
+
+
+Started POST "/api/v1/orders" for ::1 at 2020-06-20 19:00:33 -0300
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"5", "purchase_channel"=>"site br", "client_name"=>"joao silva", "adress"=>"av santos dumont", "delivery_service"=>"SEDEX", "total_value_RS"=>127, "line_items"=>["sku: case-my-best-friend, model: iPhone X, case type: Rose Leather"], "status"=>"ready", "order"=>{"reference"=>"5", "purchase_channel"=>"site br", "client_name"=>"joao silva", "adress"=>"av santos dumont", "delivery_service"=>"SEDEX", "total_value_RS"=>127, "line_items"=>["sku: case-my-best-friend, model: iPhone X, case type: Rose Leather"], "status"=>"ready"}}
+[31mUnpermitted parameter: :order[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (115.5ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "adress", "delivery_service", "total_value_RS", "line_items", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "reference"[0m  [["reference", "5"], ["purchase_channel", "site br"], ["client_name", "joao silva"], ["adress", "av santos dumont"], ["delivery_service", "SEDEX"], ["total_value_RS", 127], ["line_items", "{\"sku: case-my-best-friend, model: iPhone X, case type: Rose Leather\"}"], ["status", "ready"], ["created_at", "2020-06-20 22:00:34.048104"], ["updated_at", "2020-06-20 22:00:34.048104"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 230ms (ActiveRecord: 119.3ms | Allocations: 8290)
+
+
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "orders_pkey"
+DETAIL:  Key (reference)=(5) already exists.
+):
+  
+app/controllers/api/v1/orders_controller.rb:14:in `create'
+Started GET "/api/v1/orders" for ::1 at 2020-06-20 19:01:02 -0300
+Processing by Api::V1::OrdersController#index as JSON
+  Parameters: {"order"=>{}}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.4ms | Allocations: 2006)
+
+
+Started GET "/api/v1/batch" for ::1 at 2020-06-20 19:01:12 -0300
+Processing by Api::V1::BatchController#index as JSON
+  Parameters: {"batch"=>{}}
+  [1m[36mBatch Load (0.4ms)[0m  [1m[34mSELECT "batches".* FROM "batches" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:6:in `index'
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 3.5ms | Allocations: 3862)
+
+
+Started POST "/api/v1/batch" for ::1 at 2020-06-20 19:19:40 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"], "batch"=>{"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"]}}
+[31mUnpermitted parameter: :batch[0m
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 4545)
+
+
+  
+NoMethodError (undefined method `orders' for #<Batch:0x00007fffd354de10>):
+  
+app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+app/controllers/api/v1/batch_controller.rb:14:in `each'
+app/controllers/api/v1/batch_controller.rb:14:in `create'
+Started POST "/api/v1/batch" for ::1 at 2020-06-20 19:19:52 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"], "batch"=>{"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"]}}
+[31mUnpermitted parameter: :batch[0m
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 49.9ms | Allocations: 4539)
+
+
+  
+NoMethodError (undefined method `order' for #<Batch:0x00007fffd44ddc68>):
+  
+app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+app/controllers/api/v1/batch_controller.rb:14:in `each'
+app/controllers/api/v1/batch_controller.rb:14:in `create'
+Started POST "/api/v1/batch" for ::1 at 2020-06-20 19:20:08 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"], "batch"=>{"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"]}}
+[31mUnpermitted parameter: :batch[0m
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 3.4ms | Allocations: 4596)
+
+
+  
+NoMethodError (undefined method `where' for #<Batch:0x00007fffd499a328>
+Did you mean?  when):
+  
+app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+app/controllers/api/v1/batch_controller.rb:14:in `each'
+app/controllers/api/v1/batch_controller.rb:14:in `create'
+Started POST "/api/v1/batch" for ::1 at 2020-06-20 19:20:35 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"], "batch"=>{"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"]}}
+[31mUnpermitted parameter: :batch[0m
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 3.5ms | Allocations: 4604)
+
+
+  
+NoMethodError (undefined method `all' for #<Batch:0x00007fffd35d5c98>):
+  
+app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+app/controllers/api/v1/batch_controller.rb:14:in `each'
+app/controllers/api/v1/batch_controller.rb:14:in `create'
+Started POST "/api/v1/batch" for ::1 at 2020-06-20 19:20:51 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"], "batch"=>{"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"]}}
+[31mUnpermitted parameter: :batch[0m
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 3.1ms | Allocations: 4600)
+
+
+  
+NoMethodError (undefined method `find' for #<Batch:0x00007fbadcb455e8>):
+  
+app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+app/controllers/api/v1/batch_controller.rb:14:in `each'
+app/controllers/api/v1/batch_controller.rb:14:in `create'
+Started POST "/api/v1/batch" for ::1 at 2020-06-20 19:21:21 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"], "batch"=>{"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"]}}
+[31mUnpermitted parameter: :batch[0m
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 3.2ms | Allocations: 5608)
+
+
+  
+NoMethodError (undefined method `orders' for #<Class:0x00007fffd4802268>
+Did you mean?  order):
+  
+app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+app/controllers/api/v1/batch_controller.rb:14:in `each'
+app/controllers/api/v1/batch_controller.rb:14:in `create'
+Started POST "/api/v1/batch" for ::1 at 2020-06-20 19:21:27 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"], "batch"=>{"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"]}}
+[31mUnpermitted parameter: :batch[0m
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 3.4ms | Allocations: 2797)
+
+
+  
+ArgumentError (The method .order() must contain arguments.):
+  
+app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+app/controllers/api/v1/batch_controller.rb:14:in `each'
+app/controllers/api/v1/batch_controller.rb:14:in `create'
+Started POST "/api/v1/batch" for ::1 at 2020-06-20 19:23:32 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"], "batch"=>{"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"]}}
+[31mUnpermitted parameter: :batch[0m
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 3.2ms | Allocations: 5637)
+
+
+  
+NoMethodError (undefined method `Order' for #<Class:0x00007fffd4e2cd00>):
+  
+app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+app/controllers/api/v1/batch_controller.rb:14:in `each'
+app/controllers/api/v1/batch_controller.rb:14:in `create'
+Started POST "/api/v1/batch" for ::1 at 2020-06-20 19:30:45 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"], "batch"=>{"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"]}}
+[31mUnpermitted parameter: :batch[0m
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 8.5ms | Allocations: 4394)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column orders.referece does not exist
+LINE 1: SELECT "orders".* FROM "orders" WHERE "orders"."referece" = ...
+                                              ^
+HINT:  Perhaps you meant to reference the column "orders.reference".
+):
+  
+app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+app/controllers/api/v1/batch_controller.rb:14:in `each'
+app/controllers/api/v1/batch_controller.rb:14:in `create'
+Started POST "/api/v1/batch" for ::1 at 2020-06-20 19:31:20 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"], "batch"=>{"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"]}}
+[31mUnpermitted parameter: :batch[0m
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 8.4ms | Allocations: 6755)
+
+
+  
+NoMethodError (undefined method `reference' for #<Class:0x00007fbadc2b1530>
+Did you mean?  references):
+  
+app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+app/controllers/api/v1/batch_controller.rb:14:in `each'
+app/controllers/api/v1/batch_controller.rb:14:in `create'
+Started POST "/api/v1/batch" for ::1 at 2020-06-20 19:31:36 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"], "batch"=>{"reference"=>"5", "purchase_channel"=>"site br", "group_of_orders"=>["5"]}}
+[31mUnpermitted parameter: :batch[0m
+  [1m[36mOrder Load (75.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+  [1m[36mOrder Update (179.8ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."reference" = $3[0m  [["status", "production"], ["updated_at", "2020-06-20 22:31:36.215638"], ["reference", "2"]]
+  ↳ app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+  [1m[35m (51.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+  [1m[36mOrder Update (0.6ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."reference" = $3[0m  [["status", "production"], ["updated_at", "2020-06-20 22:31:36.477953"], ["reference", "1"]]
+  ↳ app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+  [1m[36mOrder Update (0.5ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."reference" = $3[0m  [["status", "production"], ["updated_at", "2020-06-20 22:31:36.484259"], ["reference", "5"]]
+  ↳ app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:17:in `create'
+  [1m[36mBatch Create (2.0ms)[0m  [1m[32mINSERT INTO "batches" ("reference", "purchase_channel", "group_of_orders", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "reference"[0m  [["reference", "5"], ["purchase_channel", "site br"], ["group_of_orders", "{5}"], ["created_at", "2020-06-20 22:31:36.490984"], ["updated_at", "2020-06-20 22:31:36.490984"]]
+  ↳ app/controllers/api/v1/batch_controller.rb:17:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:17:in `create'
+Completed 200 OK in 380ms (Views: 0.3ms | ActiveRecord: 317.7ms | Allocations: 20495)
+
+
+Started GET "/api/v1/orders/5" for ::1 at 2020-06-20 19:31:52 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"id"=>"5", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 2063)
+
+
+Started GET "/api/v1/orders/orders?reference=5" for ::1 at 2020-06-20 19:32:01 -0300
+Processing by Api::V1::OrdersController#show as JSON
+  Parameters: {"reference"=>"5", "id"=>"orders", "order"=>{}}
+[31mUnpermitted parameters: :id, :order[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."reference" = $1[0m  [["reference", "5"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1303)
+
+
+Started GET "/api/v1/orders/" for ::1 at 2020-06-20 19:34:11 -0300
+Processing by Api::V1::OrdersController#index as JSON
+  Parameters: {"order"=>{}}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `index'
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 4.0ms | Allocations: 7377)
+
+
+Started POST "/api/v1/orders/" for ::1 at 2020-06-20 19:35:25 -0300
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"6", "purchase_channel"=>"site br", "client_name"=>"joao silva sauro", "adress"=>"av santos dumont 901", "delivery_service"=>"SEDEX", "total_value_RS"=>121, "line_items"=>["sku: case-my-best-friend, model: iPhone X, case type: Rose Leather"], "status"=>"ready", "order"=>{"reference"=>"6", "purchase_channel"=>"site br", "client_name"=>"joao silva sauro", "adress"=>"av santos dumont 901", "delivery_service"=>"SEDEX", "total_value_RS"=>121, "line_items"=>["sku: case-my-best-friend, model: iPhone X, case type: Rose Leather"], "status"=>"ready"}}
+[31mUnpermitted parameter: :order[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("reference", "purchase_channel", "client_name", "adress", "delivery_service", "total_value_RS", "line_items", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "reference"[0m  [["reference", "6"], ["purchase_channel", "site br"], ["client_name", "joao silva sauro"], ["adress", "av santos dumont 901"], ["delivery_service", "SEDEX"], ["total_value_RS", 121], ["line_items", "{\"sku: case-my-best-friend, model: iPhone X, case type: Rose Leather\"}"], ["status", "ready"], ["created_at", "2020-06-20 22:35:25.264078"], ["updated_at", "2020-06-20 22:35:25.264078"]]
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:14:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.2ms | Allocations: 3000)
+
+
+Started GET "/api/v1/orders/" for ::1 at 2020-06-20 19:35:28 -0300
+Processing by Api::V1::OrdersController#index as JSON
+  Parameters: {"order"=>{}}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.5ms | Allocations: 2173)
+
+
+Started POST "/api/v1/batch" for ::1 at 2020-06-20 19:36:00 -0300
+Processing by Api::V1::BatchController#create as JSON
+  Parameters: {"reference"=>"6", "purchase_channel"=>"site br", "group_of_orders"=>["6"], "batch"=>{"reference"=>"6", "purchase_channel"=>"site br", "group_of_orders"=>["6"]}}
+[31mUnpermitted parameter: :batch[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+  [1m[36mOrder Update (0.3ms)[0m  [1m[33mUPDATE "orders" SET "status" = $1, "updated_at" = $2 WHERE "orders"."reference" = $3[0m  [["status", "production"], ["updated_at", "2020-06-20 22:36:00.044943"], ["reference", "6"]]
+  ↳ app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:15:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:17:in `create'
+  [1m[36mBatch Create (0.3ms)[0m  [1m[32mINSERT INTO "batches" ("reference", "purchase_channel", "group_of_orders", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "reference"[0m  [["reference", "6"], ["purchase_channel", "site br"], ["group_of_orders", "{6}"], ["created_at", "2020-06-20 22:36:00.049320"], ["updated_at", "2020-06-20 22:36:00.049320"]]
+  ↳ app/controllers/api/v1/batch_controller.rb:17:in `create'
+  [1m[35m (64.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/batch_controller.rb:17:in `create'
+Completed 200 OK in 85ms (Views: 0.4ms | ActiveRecord: 69.0ms | Allocations: 9482)
+
+
+Started POST "/api/v1/orders" for ::1 at 2020-06-20 19:36:06 -0300
+Processing by Api::V1::OrdersController#create as JSON
+  Parameters: {"reference"=>"6", "purchase_channel"=>"site br", "group_of_orders"=>["6"], "order"=>{"reference"=>"6", "purchase_channel"=>"site br"}}
+[31mUnpermitted parameters: :group_of_orders, :order[0m
+Completed 422 Unprocessable Entity in 316ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 3549)
+
+
+Started GET "/api/v1/orders" for ::1 at 2020-06-20 19:36:10 -0300
+Processing by Api::V1::OrdersController#index as JSON
+  Parameters: {"order"=>{}}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/orders_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 2175)
+
+

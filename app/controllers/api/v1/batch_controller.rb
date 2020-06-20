@@ -11,8 +11,13 @@ module Api
       end
       def create
         batch = Batch.new(batch_params)
+				for i in batch.group_of_orders do
+					Order.references("i").update(status: "production")
+				end
         if batch.save
           render json: {status: 'SUCCESS', message:'Saved Batch', data:batch},status: :ok
+
+
         else
           render json: {status: 'ERROR', message:'Batch not saved', data:batch.errors},status: :unprocessable_entity
         end
