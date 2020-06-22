@@ -1,8 +1,11 @@
 #gocasebackend
 
 This is my solution to the Backend Challenge. 
+
 To run the API, first go to [api_name]/config/database.yml and insert you Username and Password from postgresql.
+
 If needed, run "bundle install" in your terminal to instal the gems(the only one used is the postgres gem).
+
 Do "rails db:migrate" in your terminal to create de database in postgres.
 
 Endpoints:
