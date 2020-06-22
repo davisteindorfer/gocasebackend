@@ -11,9 +11,7 @@ module Api
       end
       def create
         batch = Batch.new(batch_params)
-				for i in batch.group_of_orders do
-					Order.references("i").update(status: "production")
-				end
+					Order.where(reference: batch.group_of_orders).update(status: "production")
         if batch.save
           render json: {status: 'SUCCESS', message:'Saved Batch', data:batch},status: :ok
 
@@ -22,6 +20,11 @@ module Api
           render json: {status: 'ERROR', message:'Batch not saved', data:batch.errors},status: :unprocessable_entity
         end
       end
+			def update
+				batch = Batch.find(params[:id])
+					Order.where(reference: batch.group_of_orders).update(status: "closing")
+					render json: {status: 'SUCCESS', message: 'Orders in closing'},status: :ok
+			end
       private
       def batch_params
         params.permit(:reference, :purchase_channel, :group_of_orders => [])
