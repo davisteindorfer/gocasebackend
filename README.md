@@ -27,15 +27,25 @@ This is my solution to the Backend Challenge.
   The payload to send in order to create a order is like so:
 
   {
+  
   "reference": "",
+  
   "purchase_channel": "",
+  
   "client_name": "",
+  
   "adress": "",
+  
   "delivery_service": "",
+  
   "total_value_RS": "",
+  
   "line_items": [""],
+  
   "status": ""
+  
   }
+  
 
   in which you input the values of the order inside the double quotes ""
 
@@ -62,9 +72,13 @@ This is my solution to the Backend Challenge.
   The payload to send in order to create a batch is like so:
 
   {
+  
   "reference": "",
+  
   "purchase_channel": "",
+  
   "group_of_orders": ""
+  
   }
 
   in which you input the values of the batch inside the double quotes ""
