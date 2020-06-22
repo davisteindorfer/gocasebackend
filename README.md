@@ -77,7 +77,7 @@ This is my solution to the Backend Challenge.
   
   "purchase_channel": "",
   
-  "group_of_orders": ""
+  "group_of_orders": [""]
   
   }
 
